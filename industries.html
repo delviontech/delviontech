@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Delvion Tech – Digital marketing for schools, colleges, clinics, salons, restaurants, gyms & local businesses in India." />
+  <title>Industries | Delvion Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    /* Niche Hero Cards */
+    .niche-nav { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 32px; }
+    .niche-nav a {
+      background: var(--card); border: 1px solid var(--border); color: var(--muted);
+      padding: 8px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: 500;
+      text-decoration: none; transition: border-color .2s, color .2s;
+    }
+    .niche-nav a:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* Niche Detail Sections */
+    .niche-section { padding: 80px 5%; border-bottom: 1px solid var(--border); }
+    .niche-section:nth-child(even) { background: var(--card2); }
+    .niche-inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .niche-inner.rev { direction: rtl; }
+    .niche-inner.rev > * { direction: ltr; }
+
+    .niche-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(79,142,247,.1); border: 1px solid rgba(79,142,247,.25);
+      color: var(--blue); padding: 6px 16px; border-radius: 50px;
+      font-size: 0.78rem; font-weight: 600; margin-bottom: 16px;
+    }
+    .niche-text h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 800; color: #fff; margin-bottom: 14px; letter-spacing: -.5px; }
+    .niche-text p { color: var(--muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 18px; }
+    .niche-points { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 26px; }
+    .niche-points li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--text); }
+    .niche-points li::before { content: '✓'; color: var(--blue); font-weight: 800; flex-shrink: 0; }
+
+    .niche-card-visual {
+      background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 32px;
+    }
+    .niche-emoji-big { font-size: 3.5rem; margin-bottom: 16px; display: block; }
+    .niche-results { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+    .n-res { background: rgba(79,142,247,.08); border: 1px solid rgba(79,142,247,.12); border-radius: 12px; padding: 14px; text-align: center; }
+    .n-res-val { font-size: 1.6rem; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .n-res-lbl { font-size: 0.72rem; color: var(--muted); margin-top: 3px; }
+    .niche-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .ntag { background: var(--card2); border: 1px solid var(--border); color: var(--muted); padding: 4px 11px; border-radius: 50px; font-size: 0.75rem; }
+
+    /* Common Pain Points */
+    #common { padding: 80px 5%; background: var(--dark); }
+    .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 40px; }
+    .pain-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+    .pain-card h4 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .pain-card p { font-size: 0.83rem; color: var(--muted); }
+
+    /* CTA Strip */
+    .cta-strip { padding: 72px 5%; background: linear-gradient(135deg, rgba(79,142,247,.15), rgba(168,85,247,.12)); border-top: 1px solid rgba(79,142,247,.2); text-align: center; }
+    .cta-strip h2 { font-size: clamp(1.7rem, 4vw, 2.6rem); font-weight: 900; color: #fff; margin-bottom: 12px; }
+    .cta-strip p { color: var(--muted); margin-bottom: 30px; }
+    .cta-group { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+
+    @media(max-width:900px){ .niche-inner, .niche-inner.rev { grid-template-columns:1fr; direction:ltr; gap:32px; } }
+    @media(max-width:600px){ .niche-results { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="logo">Delvion Tech</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="industries.html" class="active">Industries</a></li>
+    <li><a href="results.html">Results</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/919999999999?text=Hi%20Delvion%20Tech!%20I%20want%20a%20free%20leads%20strategy%20call." class="nav-cta" target="_blank" rel="noopener">💬 WhatsApp Us</a>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+    <li><a href="services.html" onclick="closeMenu()">Services</a></li>
+    <li><a href="industries.html" onclick="closeMenu()">Industries</a></li>
+    <li><a href="results.html" onclick="closeMenu()">Results</a></li>
+    <li><a href="about.html" onclick="closeMenu()">About</a></li>
+    <li><a href="contact.html" onclick="closeMenu()">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/919999999999?text=Hi%20Delvion%20Tech!%20I%20want%20a%20free%20leads%20strategy%20call." class="m-cta" target="_blank" rel="noopener">💬 Chat on WhatsApp</a>
+</div>
+
+<div class="page-hero">
+  <div class="sec-label">Industries We Serve</div>
+  <h1>We Speak <span class="grad-text">Your Industry's</span> Language</h1>
+  <p>Deep niche expertise means we know what works for your specific business — no generic templates.</p>
+  <div class="niche-nav">
+    <a href="#schools">🎓 Schools & Colleges</a>
+    <a href="#clinics">🏥 Clinics</a>
+    <a href="#salons">💇 Salons & Spas</a>
+    <a href="#restaurants">🍽️ Restaurants</a>
+    <a href="#gyms">💪 Gyms</a>
+    <a href="#local">🛒 Local Business</a>
+  </div>
+</div>
+
+<!-- SCHOOLS -->
+<div class="niche-section" id="schools">
+  <div class="niche-inner">
+    <div class="niche-text fade-up">
+      <div class="niche-tag">🎓 Education</div>
+      <h2>School &amp; College <span class="grad-text">Admissions Growth</span></h2>
+      <p>Admission season is short. You need a system that generates maximum parent enquiries in the shortest time — before competitors fill their seats. We've helped institutions 2x their enrollments in a single season.</p>
+      <ul class="niche-points">
+        <li>Hyper-local Facebook & Instagram ads targeting parents by pin code</li>
+        <li>Admission landing pages with WhatsApp & call CTAs</li>
+        <li>Google Search Ads for "school admission near me" keywords</li>
+        <li>Retargeting campaigns for parents who visited but didn't enquire</li>
+        <li>Admission season campaigns with urgency messaging</li>
+        <li>Google My Business optimization for local discovery</li>
+      </ul>
+      <a href="contact.html" class="btn-primary">Get Admissions Strategy →</a>
+    </div>
+    <div class="niche-card-visual fade-up">
+      <span class="niche-emoji-big">🎓</span>
+      <div class="niche-results">
+        <div class="n-res"><div class="n-res-val">2x</div><div class="n-res-lbl">Admissions Growth</div></div>
+        <div class="n-res"><div class="n-res-val">80+</div><div class="n-res-lbl">Leads in 10 Days</div></div>
+        <div class="n-res"><div class="n-res-val">₹35</div><div class="n-res-lbl">Avg. Cost/Lead</div></div>
+        <div class="n-res"><div class="n-res-val">7</div><div class="n-res-lbl">Days to Launch</div></div>
+      </div>
+      <div class="niche-tags">
+        <span class="ntag">School Ads</span><span class="ntag">College Ads</span><span class="ntag">Coaching Centre</span><span class="ntag">Parent Targeting</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CLINICS -->
+<div class="niche-section" id="clinics">
+  <div class="niche-inner rev">
+    <div class="niche-card-visual fade-up">
+      <span class="niche-emoji-big">🏥</span>
+      <div class="niche-results">
+        <div class="n-res"><div class="n-res-val">20+</div><div class="n-res-lbl">Patients/Week</div></div>
+        <div class="n-res"><div class="n-res-val">₹45</div><div class="n-res-lbl">Avg. Cost/Lead</div></div>
+        <div class="n-res"><div class="n-res-val">#1</div><div class="n-res-lbl">Google Maps</div></div>
+        <div class="n-res"><div class="n-res-val">3x</div><div class="n-res-lbl">More Bookings</div></div>
+      </div>
+      <div class="niche-tags">
+        <span class="ntag">General Physician</span><span class="ntag">Dental</span><span class="ntag">Dermatology</span><span class="ntag">Ayurveda</span>
+      </div>
+    </div>
+    <div class="niche-text fade-up">
+      <div class="niche-tag">🏥 Healthcare</div>
+      <h2>Clinic &amp; Hospital <span class="grad-text">Patient Booking</span></h2>
+      <p>Patients are searching for doctors and specialists online every day. We ensure your clinic appears at the top when they do — and make it easy for them to book an appointment instantly.</p>
+      <ul class="niche-points">
+        <li>Google Ads for symptom & specialty-based local search</li>
+        <li>Trust-building website with doctor profiles & patient reviews</li>
+        <li>WhatsApp appointment booking integration</li>
+        <li>Google Maps optimization for "clinic near me" searches</li>
+        <li>Facebook ads targeting local demographics by health interest</li>
+        <li>Online reputation management — grow 5-star reviews</li>
+      </ul>
+      <a href="contact.html" class="btn-primary">Get More Patients →</a>
+    </div>
+  </div>
+</div>
+
+<!-- SALONS -->
+<div class="niche-section" id="salons">
+  <div class="niche-inner">
+    <div class="niche-text fade-up">
+      <div class="niche-tag">💇 Beauty & Wellness</div>
+      <h2>Salon &amp; Spa <span class="grad-text">Appointment Bookings</span></h2>
+      <p>A fully booked appointment calendar is every salon owner's dream. We make it reality with Instagram-first campaigns that reach beauty-conscious locals who are ready to book now.</p>
+      <ul class="niche-points">
+        <li>Instagram & Facebook ads with stunning visual creatives</li>
+        <li>Offer-based campaigns (Diwali, Valentine's, seasonal promos)</li>
+        <li>WhatsApp booking integration — customers book directly</li>
+        <li>Reels & story ad formats for maximum reach</li>
+        <li>Loyalty campaign retargeting for existing clients</li>
+        <li>Local SEO for "salon near me" searches</li>
+      </ul>
+      <a href="contact.html" class="btn-primary">Fill My Calendar →</a>
+    </div>
+    <div class="niche-card-visual fade-up">
+      <span class="niche-emoji-big">💇</span>
+      <div class="niche-results">
+        <div class="n-res"><div class="n-res-val">100%</div><div class="n-res-lbl">Bookings Filled</div></div>
+        <div class="n-res"><div class="n-res-val">3x</div><div class="n-res-lbl">More Walk-ins</div></div>
+        <div class="n-res"><div class="n-res-val">₹30</div><div class="n-res-lbl">Avg. Cost/Lead</div></div>
+        <div class="n-res"><div class="n-res-val">IG</div><div class="n-res-lbl">Primary Channel</div></div>
+      </div>
+      <div class="niche-tags">
+        <span class="ntag">Hair Salon</span><span class="ntag">Spa</span><span class="ntag">Nail Art</span><span class="ntag">Beauty Parlour</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESTAURANTS -->
+<div class="niche-section" id="restaurants">
+  <div class="niche-inner rev">
+    <div class="niche-card-visual fade-up">
+      <span class="niche-emoji-big">🍽️</span>
+      <div class="niche-results">
+        <div class="n-res"><div class="n-res-val">5x</div><div class="n-res-lbl">Online Orders</div></div>
+        <div class="n-res"><div class="n-res-val">40%</div><div class="n-res-lbl">More Dine-ins</div></div>
+        <div class="n-res"><div class="n-res-val">₹25</div><div class="n-res-lbl">Avg. Cost/Lead</div></div>
+        <div class="n-res"><div class="n-res-val">Maps</div><div class="n-res-lbl">#1 Local Rank</div></div>
+      </div>
+      <div class="niche-tags">
+        <span class="ntag">Restaurant</span><span class="ntag">Cafe</span><span class="ntag">Cloud Kitchen</span><span class="ntag">Catering</span>
+      </div>
+    </div>
+    <div class="niche-text fade-up">
+      <div class="niche-tag">🍽️ Food & Beverage</div>
+      <h2>Restaurant &amp; Cafe <span class="grad-text">Customer Flow</span></h2>
+      <p>Whether you want more dine-ins, online orders, or event bookings — our campaigns are designed to make your food business the most visible and irresistible choice in your area.</p>
+      <ul class="niche-points">
+        <li>Food photography-based Instagram & Facebook ads</li>
+        <li>Google Maps optimization for "restaurant near me"</li>
+        <li>WhatsApp menu & order integration</li>
+        <li>Offer campaigns for festivals, weekends & special events</li>
+        <li>Google Ads for delivery & dine-in intent keywords</li>
+        <li>Review generation for Zomato, Google & Swiggy</li>
+      </ul>
+      <a href="contact.html" class="btn-primary">Get More Customers →</a>
+    </div>
+  </div>
+</div>
+
+<!-- GYMS -->
+<div class="niche-section" id="gyms">
+  <div class="niche-inner">
+    <div class="niche-text fade-up">
+      <div class="niche-tag">💪 Fitness</div>
+      <h2>Gym &amp; Fitness <span class="grad-text">Member Acquisition</span></h2>
+      <p>New Year, summer, wedding season — fitness demand spikes at the right moments. We build always-on campaigns that bring consistent new members month after month, not just seasonally.</p>
+      <ul class="niche-points">
+        <li>Before/after transformation ad creatives that convert</li>
+        <li>Free trial / first week free offer campaigns</li>
+        <li>Geo-targeted ads within 5km of your gym</li>
+        <li>WhatsApp & call CTAs for quick enquiry</li>
+        <li>Seasonal campaigns (Jan New Year, summer shred)</li>
+        <li>Referral campaign strategy for existing members</li>
+      </ul>
+      <a href="contact.html" class="btn-primary">Get More Members →</a>
+    </div>
+    <div class="niche-card-visual fade-up">
+      <span class="niche-emoji-big">💪</span>
+      <div class="niche-results">
+        <div class="n-res"><div class="n-res-val">60+</div><div class="n-res-lbl">New Members/Month</div></div>
+        <div class="n-res"><div class="n-res-val">₹40</div><div class="n-res-lbl">Avg. Cost/Lead</div></div>
+        <div class="n-res"><div class="n-res-val">5km</div><div class="n-res-lbl">Hyperlocal Reach</div></div>
+        <div class="n-res"><div class="n-res-val">4.8★</div><div class="n-res-lbl">Google Rating</div></div>
+      </div>
+      <div class="niche-tags">
+        <span class="ntag">Gym</span><span class="ntag">CrossFit</span><span class="ntag">Yoga Studio</span><span class="ntag">Zumba</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOCAL BUSINESSES -->
+<div class="niche-section" id="local">
+  <div class="niche-inner rev">
+    <div class="niche-card-visual fade-up">
+      <span class="niche-emoji-big">🛒</span>
+      <div class="niche-results">
+        <div class="n-res"><div class="n-res-val">50+</div><div class="n-res-lbl">Leads in 7 Days</div></div>
+        <div class="n-res"><div class="n-res-val">Local</div><div class="n-res-lbl">Audience Targeting</div></div>
+        <div class="n-res"><div class="n-res-val">100+</div><div class="n-res-lbl">Clients Served</div></div>
+        <div class="n-res"><div class="n-res-val">All</div><div class="n-res-lbl">India Coverage</div></div>
+      </div>
+      <div class="niche-tags">
+        <span class="ntag">Coaching</span><span class="ntag">Real Estate</span><span class="ntag">Travel</span><span class="ntag">Retail</span><span class="ntag">Services</span>
+      </div>
+    </div>
+    <div class="niche-text fade-up">
+      <div class="niche-tag">🛒 Local Business</div>
+      <h2>Any Local Business <span class="grad-text">Can Grow Online</span></h2>
+      <p>Coaching centre, jewellery shop, travel agency, real estate, home services — whatever your business, we have a proven system to generate more customers from your local area online.</p>
+      <ul class="niche-points">
+        <li>Industry research & competitor analysis before we start</li>
+        <li>Custom landing page designed for your specific offer</li>
+        <li>Local audience targeting on Meta & Google</li>
+        <li>WhatsApp funnel for instant lead response</li>
+        <li>Monthly strategy review and scaling plan</li>
+        <li>Affordable packages starting ₹9,999/month</li>
+      </ul>
+      <a href="contact.html" class="btn-primary">Grow My Business →</a>
+    </div>
+  </div>
+</div>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <div class="container">
+    <h2>Don't See Your Industry? <span class="grad-text">Talk to Us!</span></h2>
+    <p>We work with all types of local businesses across India. Let's find the right strategy for you.</p>
+    <div class="cta-group">
+      <a href="contact.html" class="btn-primary">🚀 Book Free Strategy Call</a>
+      <a href="https://wa.me/919999999999?text=Hi%20Delvion%20Tech!%20I%20want%20a%20digital%20marketing%20strategy%20for%20my%20business." class="btn-wa" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Delvion Tech</div>
+  <p style="margin-bottom:4px;">Helping Indian businesses get more customers &amp; admissions online.</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a><a href="services.html">Services</a><a href="industries.html">Industries</a><a href="results.html">Results</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+  </div>
+  <p>© 2025 Delvion Tech. All rights reserved. | Made with ❤️ in India</p>
+</footer>
+<a href="https://wa.me/919999999999?text=Hi%20Delvion%20Tech!%20I%20want%20a%20free%20leads%20strategy%20call." class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<script src="shared.js"></script>
+</body>
+</html>

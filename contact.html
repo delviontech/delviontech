@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Delvion Tech – Book a free strategy call, WhatsApp us, or fill the form to get more customers for your business in India." />
+  <title>Contact Us | Delvion Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    /* Contact Layout */
+    #contact-main { padding: 80px 5%; background: var(--dark); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 56px; align-items: start; max-width: 1100px; margin: 0 auto; }
+
+    /* Left Info */
+    .contact-info h2 { font-size: clamp(1.7rem, 4vw, 2.3rem); font-weight: 800; color: #fff; letter-spacing: -.5px; margin-bottom: 14px; }
+    .contact-info > p { color: var(--muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 28px; }
+    .contact-methods { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+    .contact-method {
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+      padding: 18px 20px; display: flex; align-items: center; gap: 16px;
+      text-decoration: none; transition: border-color .2s;
+    }
+    .contact-method:hover { border-color: var(--blue); }
+    .cm-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .cm-wa { background: rgba(37,211,102,.15); }
+    .cm-call { background: rgba(79,142,247,.15); }
+    .cm-email { background: rgba(168,85,247,.15); }
+    .cm-text h5 { font-size: 0.88rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .cm-text p { font-size: 0.8rem; color: var(--muted); }
+    .cm-arrow { margin-left: auto; color: var(--muted); font-size: 1rem; }
+
+    /* Office Hours */
+    .hours-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px; }
+    .hours-card h4 { font-size: 0.9rem; font-weight: 700; color: #fff; margin-bottom: 14px; }
+    .hours-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-day { font-size: 0.85rem; color: var(--muted); }
+    .hours-time { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+    .hours-badge { font-size: 0.72rem; background: rgba(37,211,102,.15); color: #25D366; padding: 2px 10px; border-radius: 50px; }
+
+    /* Right: Form */
+    .contact-form-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 36px; }
+    .contact-form-wrap h3 { font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .contact-form-wrap p { font-size: 0.85rem; color: var(--muted); margin-bottom: 24px; }
+    form { display: flex; flex-direction: column; gap: 14px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; background: var(--card2); border: 1px solid var(--border);
+      color: var(--text); padding: 13px 16px; border-radius: 10px;
+      font-size: 0.9rem; font-family: 'Inter', sans-serif; outline: none;
+      transition: border-color .2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--blue); }
+    .form-group select option { background: var(--card2); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--muted); margin-bottom: 6px; }
+    .budget-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .budget-opt { background: var(--card2); border: 1px solid var(--border); color: var(--muted); padding: 10px; border-radius: 8px; font-size: 0.82rem; font-weight: 500; text-align: center; cursor: pointer; transition: border-color .2s, color .2s, background .2s; user-select: none; }
+    .budget-opt.selected { border-color: var(--blue); color: var(--blue); background: rgba(79,142,247,.08); }
+    .btn-submit { width: 100%; background: var(--grad); color: #fff; border: none; padding: 15px; border-radius: 10px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: opacity .2s; }
+    .btn-submit:hover { opacity: .88; }
+    .form-note { font-size: 0.78rem; color: var(--muted); text-align: center; }
+    .success-msg { display: none; background: rgba(37,211,102,.12); border: 1px solid rgba(37,211,102,.3); color: #25D366; padding: 16px; border-radius: 10px; text-align: center; font-weight: 600; margin-top: 8px; }
+
+    /* FAQ */
+    #faq { background: var(--card2); padding: 80px 5%; }
+    .faq-list { max-width: 760px; margin: 40px auto 0; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .faq-q { padding: 18px 22px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #fff; font-size: 0.95rem; user-select: none; }
+    .faq-q span { color: var(--blue); font-size: 1.2rem; transition: transform .3s; }
+    .faq-item.open .faq-q span { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .3s; padding: 0 22px; color: var(--muted); font-size: 0.88rem; line-height: 1.75; }
+    .faq-item.open .faq-a { max-height: 200px; padding: 0 22px 18px; }
+
+    /* Quick Action Cards */
+    #quick { background: var(--dark); padding: 72px 5%; }
+    .quick-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 36px; }
+    .quick-card { border-radius: 16px; padding: 28px; text-align: center; border: 1px solid var(--border); transition: border-color .2s, transform .2s; text-decoration: none; display: block; }
+    .quick-card:hover { transform: translateY(-4px); border-color: rgba(79,142,247,.35); }
+    .quick-card.wa-card { background: rgba(37,211,102,.06); border-color: rgba(37,211,102,.15); }
+    .quick-card.call-card { background: rgba(79,142,247,.06); border-color: rgba(79,142,247,.15); }
+    .quick-card.form-card { background: rgba(168,85,247,.06); border-color: rgba(168,85,247,.15); }
+    .quick-icon { font-size: 2.5rem; margin-bottom: 14px; }
+    .quick-card h4 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .quick-card p { font-size: 0.83rem; color: var(--muted); margin-bottom: 16px; }
+    .quick-action { display: inline-block; padding: 9px 20px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; color: #fff; }
+    .wa-card .quick-action { background: #25D366; }
+    .call-card .quick-action { background: var(--blue); }
+    .form-card .quick-action { background: var(--purple); }
+
+    @media(max-width:900px){ .contact-grid { grid-template-columns:1fr; gap:36px; } }
+    @media(max-width:600px){ .form-row { grid-template-columns:1fr; } .budget-options { grid-template-columns:1fr 1fr; } }
+  </style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="logo">Delvion Tech</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="industries.html">Industries</a></li>
+    <li><a href="results.html">Results</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/919999999999?text=Hi%20Delvion%20Tech!%20I%20want%20a%20free%20leads%20strategy%20call." class="nav-cta" target="_blank" rel="noopener">💬 WhatsApp Us</a>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+    <li><a href="services.html" onclick="closeMenu()">Services</a></li>
+    <li><a href="industries.html" onclick="closeMenu()">Industries</a></li>
+    <li><a href="results.html" onclick="closeMenu()">Results</a></li>
+    <li><a href="about.html" onclick="closeMenu()">About</a></li>
+    <li><a href="contact.html" onclick="closeMenu()">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/919999999999?text=Hi%20Delvion%20Tech!%20I%20want%20a%20free%20leads%20strategy%20call." class="m-cta" target="_blank" rel="noopener">💬 Chat on WhatsApp</a>
+</div>
+
+<div class="page-hero">
+  <div class="sec-label">Get In Touch</div>
+  <h1>Let's Grow Your <span class="grad-text">Business Together</span></h1>
+  <p>Book a free 20-minute strategy call. No pressure. No commitment. Just real advice.</p>
+</div>
+
+<!-- QUICK ACTIONS -->
+<section id="quick">
+  <div class="container">
+    <div class="sec-label" style="text-align:center;">Choose How to Reach Us</div>
+    <h2 class="sec-title" style="text-align:center;">We Respond in <span class="grad-text">Under 60 Minutes</span></h2>
+    <div class="quick-grid">
+      <a href="https://wa.me/919999999999?text=Hi%20Delvion%20Tech!%20I%20want%20a%20free%20leads%20strategy%20call." class="quick-card wa-card" target="_blank" rel="noopener">
+        <div class="quick-icon">💬</div>
+        <h4>WhatsApp Us Now</h4>
+        <p>Fastest response. Message us and get a reply within minutes during business hours.</p>
+        <span class="quick-action">+91 99999 99999</span>
+      </a>
+      <a href="tel:+919999999999" class="quick-card call-card">
+        <div class="quick-icon">📞</div>
+        <h4>Call Us Directly</h4>
+        <p>Prefer talking? Call us directly. We love talking to business owners about growth.</p>
+        <span class="quick-action">+91 99999 99999</span>
+      </a>
+      <a href="#contact-form" class="quick-card form-card">
+        <div class="quick-icon">📋</div>
+        <h4>Fill the Form Below</h4>
+        <p>Share your details and we'll reach out to schedule your free strategy call.</p>
+        <span class="quick-action">Fill the Form ↓</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTACT -->
+<section id="contact-main">
+  <div class="contact-grid">
+    <!-- LEFT INFO -->
+    <div class="contact-info fade-up">
+      <div class="sec-label">Contact Details</div>
+      <h2>We're Here to <span class="grad-text">Help You Grow</span></h2>
+      <p>Whether you're a school wanting more admissions, a clinic wanting more patients, or any local business wanting more customers — let's talk. First call is always free.</p>
+      <div class="contact-methods">
+        <a href="https://wa.me/919999999999?text=Hi%20Delvion%20Tech!%20I%20want%20a%20free%20leads%20strategy%20call." class="contact-method" target="_blank" rel="noopener">
+          <div class="cm-icon cm-wa">💬</div>
+          <div class="cm-text"><h5>WhatsApp (Fastest)</h5><p>+91 99999 99999 · Reply within 60 mins</p></div>
+          <div class="cm-arrow">→</div>
+        </a>
+        <a href="tel:+919999999999" class="contact-method">
+          <div class="cm-icon cm-call">📞</div>
+          <div class="cm-text"><h5>Call Us</h5><p>+91 99999 99999 · Mon–Sat, 9AM–7PM</p></div>
+          <div class="cm-arrow">→</div>
+        </a>
+        <a href="mailto:hello@delviontech.com" class="contact-method">
+          <div class="cm-icon cm-email">✉️</div>
+          <div class="cm-text"><h5>Email Us</h5><p>hello@delviontech.com</p></div>
+          <div class="cm-arrow">→</div>
+        </a>
+      </div>
+      <div class="hours-card">
+        <h4>🕐 Working Hours (IST)</h4>
+        <div class="hours-row"><span class="hours-day">Monday – Friday</span><span class="hours-time">9:00 AM – 7:00 PM <span class="hours-badge">Open</span></span></div>
+        <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">10:00 AM – 5:00 PM <span class="hours-badge">Open</span></span></div>
+        <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time" style="color:var(--muted);">Closed</span></div>
+        <div style="margin-top:14px;font-size:0.8rem;color:var(--muted);">WhatsApp messages are seen 7 days/week. Urgent? Always WhatsApp us.</div>
+      </div>
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="contact-form-wrap fade-up" id="contact-form">
+      <h3>📋 Get Your Free Strategy Call</h3>
+      <p>Fill in your details and we'll contact you within 60 minutes to schedule a call.</p>
+      <form id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" name="name" placeholder="Your full name" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label>WhatsApp Number *</label>
+            <input type="tel" name="phone" placeholder="10-digit number" required pattern="[0-9]{10}" autocomplete="tel" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="email" placeholder="your@email.com" autocomplete="email" />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Business Type *</label>
+            <select name="business" required>
+              <option value="" disabled selected>Select type</option>
+              <option>School / College</option>
+              <option>Clinic / Hospital</option>
+              <option>Salon / Spa</option>
+              <option>Restaurant / Cafe</option>
+              <option>Gym / Fitness</option>
+              <option>Coaching Centre</option>
+              <option>Other Local Business</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Service Needed *</label>
+            <select name="service" required>
+              <option value="" disabled selected>Select service</option>
+              <option>Website Design</option>
+              <option>Meta Ads (FB/Instagram)</option>
+              <option>Google Ads</option>
+              <option>Local SEO</option>
+              <option>Full Package</option>
+              <option>Not Sure – Need Advice</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Monthly Budget for Ads</label>
+          <div class="budget-options">
+            <div class="budget-opt" data-val="under10k">Under ₹10,000</div>
+            <div class="budget-opt" data-val="10-20k">₹10,000 – ₹20,000</div>
+            <div class="budget-opt" data-val="20-50k">₹20,000 – ₹50,000</div>
+            <div class="budget-opt" data-val="50k+">₹50,000+</div>
+          </div>
+          <input type="hidden" name="budget" id="budgetHidden" />
+        </div>
+        <div class="form-group">
+          <label>City / Location</label>
+          <input type="text" name="city" placeholder="Your city or area" />
+        </div>
+        <div class="form-group">
+          <label>Tell us about your business &amp; goals</label>
+          <textarea name="message" placeholder="E.g. We are a school in Delhi and want to fill 100 seats this admission season..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">🚀 Book Free Strategy Call via WhatsApp</button>
+        <div class="form-note">🔒 100% confidential. No spam ever. We'll call within 60 mins.</div>
+        <div class="success-msg" id="successMsg">✅ Thank you! We'll contact you within 60 minutes. Check WhatsApp!</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="sec-label" style="text-align:center;">FAQ</div>
+    <h2 class="sec-title" style="text-align:center;">Frequently Asked <span class="grad-text">Questions</span></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Is the strategy call really free? <span>+</span></div>
+        <div class="faq-a">Yes, 100% free with zero obligation. We spend 20 minutes understanding your business and share a clear digital growth plan — no strings attached.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How long before I start seeing results? <span>+</span></div>
+        <div class="faq-a">Most clients start receiving leads within 3–7 days of campaign launch. The first week is about testing and optimization to bring your cost per lead down.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What is the minimum budget for running ads? <span>+</span></div>
+        <div class="faq-a">We recommend a minimum ad spend of ₹10,000–₹15,000/month for meaningful results. Our management fee is separate. We'll suggest the ideal budget for your goals on the strategy call.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you offer guaranteed results? <span>+</span></div>
+        <div class="faq-a">While no ethical agency can guarantee exact numbers (as results depend on budget, market, and product), we have a strong track record of 50+ leads in 7 days for most clients. We share case studies transparently.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is there a long-term contract? <span>+</span></div>
+        <div class="faq-a">No lock-in contracts. We work month-to-month. We believe if we deliver results, you'll stay. And if you're not happy, you should be free to leave. Simple.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Which cities do you serve? <span>+</span></div>
+        <div class="faq-a">We serve businesses across all of India — Delhi, Mumbai, Bangalore, Pune, Hyderabad, Jaipur, Chennai, Ahmedabad, and every other city. Digital marketing is location-agnostic.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do we communicate and get reports? <span>+</span></div>
+        <div class="faq-a">Primarily via WhatsApp — because that's how India works. You get weekly performance reports, and your dedicated account manager is available on WhatsApp during business hours.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Delvion Tech</div>
+  <p style="margin-bottom:4px;">Helping Indian businesses get more customers &amp; admissions online.</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a><a href="services.html">Services</a><a href="industries.html">Industries</a><a href="results.html">Results</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+  </div>
+  <p>© 2025 Delvion Tech. All rights reserved. | Made with ❤️ in India</p>
+</footer>
+
+<a href="https://wa.me/919999999999?text=Hi%20Delvion%20Tech!%20I%20want%20a%20free%20leads%20strategy%20call." class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="shared.js"></script>
+<script>
+  // Budget selector
+  document.querySelectorAll('.budget-opt').forEach(opt => {
+    opt.addEventListener('click', () => {
+      document.querySelectorAll('.budget-opt').forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+      document.getElementById('budgetHidden').value = opt.dataset.val;
+    });
+  });
+
+  // FAQ toggle
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Form Submit
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = this.name.value.trim();
+    const phone = this.phone.value.trim();
+    const business = this.business.value;
+    const service = this.service.value;
+    if (!name || !phone || !business || !service) { alert('Please fill in all required fields.'); return; }
+    if (!/^[0-9]{10}$/.test(phone)) { alert('Please enter a valid 10-digit WhatsApp number.'); return; }
+    const budget = document.getElementById('budgetHidden').value || 'Not specified';
+    const city = this.city.value.trim() || 'Not specified';
+    const msg = this.message.value.trim() || 'N/A';
+    const waMsg = `Hi Delvion Tech! 👋%0A%0A*New Strategy Call Request*%0A%0A📋 *Name:* ${encodeURIComponent(name)}%0A📱 *Phone:* ${phone}%0A🏢 *Business:* ${encodeURIComponent(business)}%0A🎯 *Service:* ${encodeURIComponent(service)}%0A💰 *Budget:* ${encodeURIComponent(budget)}%0A📍 *City:* ${encodeURIComponent(city)}%0A💬 *Message:* ${encodeURIComponent(msg)}%0A%0AI want to book my free strategy call!`;
+    window.open(`https://wa.me/919999999999?text=${waMsg}`, '_blank');
+    document.getElementById('successMsg').style.display = 'block';
+    this.reset();
+    document.querySelectorAll('.budget-opt').forEach(o => o.classList.remove('selected'));
+    document.getElementById('budgetHidden').value = '';
+    setTimeout(() => document.getElementById('successMsg').style.display = 'none', 8000);
+  });
+</script>
+</body>
+</html>
