@@ -209,6 +209,10 @@ body{
   color: #E2E8F0;
 }
 
+.footer-col h3{
+  color: #93C5FD;
+}
+
 .btn-primary{
   background: var(--primary);
   color: #fff;
@@ -233,7 +237,4 @@ body{
   border-radius: 12px;
   font-size: .92rem;
   font-weight: 700;
-}
-.footer-col h3{
-  color: #93C5FD;
 }
